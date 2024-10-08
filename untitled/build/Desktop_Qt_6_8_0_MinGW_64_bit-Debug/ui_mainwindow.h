@@ -12,8 +12,8 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QFrame>
 #include <QtWidgets/QGroupBox>
+#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListView>
 #include <QtWidgets/QMainWindow>
@@ -36,12 +36,12 @@ public:
     QGroupBox *groupBox;
     QRadioButton *formatoDoce;
     QRadioButton *formatoVeinticuatro;
-    QFrame *ventanaPrincipal;
     QListView *listaAlarmas;
     QPushButton *modificarAlarma;
     QPushButton *eliminarAlarma;
     QPushButton *cronometro;
     QSpinBox *spinBox;
+    QLCDNumber *labelTimer;
     QMenuBar *menubar;
     QMenu *menuMain;
     QMenu *menu2nd;
@@ -73,11 +73,6 @@ public:
         formatoVeinticuatro = new QRadioButton(groupBox);
         formatoVeinticuatro->setObjectName("formatoVeinticuatro");
         formatoVeinticuatro->setGeometry(QRect(10, 70, 91, 22));
-        ventanaPrincipal = new QFrame(centralwidget);
-        ventanaPrincipal->setObjectName("ventanaPrincipal");
-        ventanaPrincipal->setGeometry(QRect(170, 120, 221, 80));
-        ventanaPrincipal->setFrameShape(QFrame::Shape::StyledPanel);
-        ventanaPrincipal->setFrameShadow(QFrame::Shadow::Raised);
         listaAlarmas = new QListView(centralwidget);
         listaAlarmas->setObjectName("listaAlarmas");
         listaAlarmas->setGeometry(QRect(150, 250, 261, 192));
@@ -93,6 +88,10 @@ public:
         spinBox = new QSpinBox(centralwidget);
         spinBox->setObjectName("spinBox");
         spinBox->setGeometry(QRect(630, 310, 42, 25));
+        labelTimer = new QLCDNumber(centralwidget);
+        labelTimer->setObjectName("labelTimer");
+        labelTimer->setGeometry(QRect(80, 90, 371, 121));
+        labelTimer->setDigitCount(20);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
