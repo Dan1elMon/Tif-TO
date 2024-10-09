@@ -23,6 +23,7 @@
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -42,6 +43,12 @@ public:
     QPushButton *cronometro;
     QSpinBox *spinBox;
     QLCDNumber *labelTimer;
+    QLabel *Digital_clock;
+    QLabel *clockLabel;
+    QTimeEdit *alarmTimeEdit;
+    QPushButton *startStopwatchButton;
+    QLabel *stopwatchLabel;
+    QLabel *alarmMessageLabel;
     QMenuBar *menubar;
     QMenu *menuMain;
     QMenu *menu2nd;
@@ -56,7 +63,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         agregarAlarma = new QPushButton(centralwidget);
         agregarAlarma->setObjectName("agregarAlarma");
-        agregarAlarma->setGeometry(QRect(470, 250, 101, 24));
+        agregarAlarma->setGeometry(QRect(320, 240, 101, 24));
         label = new QLabel(centralwidget);
         label->setObjectName("label");
         label->setEnabled(true);
@@ -66,7 +73,7 @@ public:
         label->setFont(font);
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(470, 90, 120, 121));
+        groupBox->setGeometry(QRect(350, 90, 120, 121));
         formatoDoce = new QRadioButton(groupBox);
         formatoDoce->setObjectName("formatoDoce");
         formatoDoce->setGeometry(QRect(10, 30, 91, 22));
@@ -75,23 +82,46 @@ public:
         formatoVeinticuatro->setGeometry(QRect(10, 70, 91, 22));
         listaAlarmas = new QListView(centralwidget);
         listaAlarmas->setObjectName("listaAlarmas");
-        listaAlarmas->setGeometry(QRect(150, 250, 261, 192));
+        listaAlarmas->setGeometry(QRect(70, 240, 201, 171));
         modificarAlarma = new QPushButton(centralwidget);
         modificarAlarma->setObjectName("modificarAlarma");
-        modificarAlarma->setGeometry(QRect(470, 400, 101, 24));
+        modificarAlarma->setGeometry(QRect(320, 370, 101, 24));
         eliminarAlarma = new QPushButton(centralwidget);
         eliminarAlarma->setObjectName("eliminarAlarma");
-        eliminarAlarma->setGeometry(QRect(470, 330, 101, 24));
+        eliminarAlarma->setGeometry(QRect(320, 300, 101, 24));
         cronometro = new QPushButton(centralwidget);
         cronometro->setObjectName("cronometro");
-        cronometro->setGeometry(QRect(370, 470, 81, 24));
+        cronometro->setGeometry(QRect(300, 450, 81, 24));
         spinBox = new QSpinBox(centralwidget);
         spinBox->setObjectName("spinBox");
-        spinBox->setGeometry(QRect(630, 310, 42, 25));
+        spinBox->setGeometry(QRect(640, 300, 42, 25));
         labelTimer = new QLCDNumber(centralwidget);
         labelTimer->setObjectName("labelTimer");
-        labelTimer->setGeometry(QRect(80, 90, 371, 121));
+        labelTimer->setGeometry(QRect(80, 90, 231, 121));
         labelTimer->setDigitCount(20);
+        Digital_clock = new QLabel(centralwidget);
+        Digital_clock->setObjectName("Digital_clock");
+        Digital_clock->setGeometry(QRect(70, 460, 131, 91));
+        QFont font1;
+        font1.setFamilies({QString::fromUtf8("MS Sans Serif")});
+        font1.setPointSize(22);
+        font1.setBold(true);
+        Digital_clock->setFont(font1);
+        clockLabel = new QLabel(centralwidget);
+        clockLabel->setObjectName("clockLabel");
+        clockLabel->setGeometry(QRect(640, 50, 49, 16));
+        alarmTimeEdit = new QTimeEdit(centralwidget);
+        alarmTimeEdit->setObjectName("alarmTimeEdit");
+        alarmTimeEdit->setGeometry(QRect(640, 100, 118, 25));
+        startStopwatchButton = new QPushButton(centralwidget);
+        startStopwatchButton->setObjectName("startStopwatchButton");
+        startStopwatchButton->setGeometry(QRect(640, 150, 80, 24));
+        stopwatchLabel = new QLabel(centralwidget);
+        stopwatchLabel->setObjectName("stopwatchLabel");
+        stopwatchLabel->setGeometry(QRect(640, 210, 49, 16));
+        alarmMessageLabel = new QLabel(centralwidget);
+        alarmMessageLabel->setObjectName("alarmMessageLabel");
+        alarmMessageLabel->setGeometry(QRect(640, 250, 49, 16));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -124,6 +154,11 @@ public:
         modificarAlarma->setText(QCoreApplication::translate("MainWindow", "Modificar alarma", nullptr));
         eliminarAlarma->setText(QCoreApplication::translate("MainWindow", "Eliminar alarma", nullptr));
         cronometro->setText(QCoreApplication::translate("MainWindow", "Cronometro", nullptr));
+        Digital_clock->setText(QCoreApplication::translate("MainWindow", "Clock", nullptr));
+        clockLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        startStopwatchButton->setText(QCoreApplication::translate("MainWindow", "Cronos", nullptr));
+        stopwatchLabel->setText(QCoreApplication::translate("MainWindow", "00:00", nullptr));
+        alarmMessageLabel->setText(QCoreApplication::translate("MainWindow", "Apagar", nullptr));
         menuMain->setTitle(QCoreApplication::translate("MainWindow", "Main", nullptr));
         menu2nd->setTitle(QCoreApplication::translate("MainWindow", "2nd", nullptr));
     } // retranslateUi
