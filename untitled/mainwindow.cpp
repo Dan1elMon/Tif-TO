@@ -45,11 +45,11 @@ void MainWindow::startStopwatch() {
         stopwatchTimer->stop();
     } else {
         stopwatchTime = QTime(0, 0);
-        stopwatchTimer->start(1000);
+        stopwatchTimer->start(10);  // Cambiamos el intervalo a 10 ms para tener milisegundos precisos
     }
 }
 
 void MainWindow::updateStopwatch() {
-    stopwatchTime = stopwatchTime.addSecs(1);
-    ui->stopwatchLabel->setText(stopwatchTime.toString("HH:mm:ss"));
+    stopwatchTime = stopwatchTime.addMSecs(10);  // Incrementamos en 10 milisegundos
+    ui->stopwatchLabel->setText(stopwatchTime.toString("HH:mm:ss:zzz"));  // Incluimos milisegundos en el formato
 }
